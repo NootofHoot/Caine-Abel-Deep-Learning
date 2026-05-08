@@ -1,5 +1,5 @@
-# **CAINE & ABEL DEEP LEARNING**
--#  *DUAL GPT-NEO FUELD*
+# **CAINE & ABEL DEEP LEARNING** ♊
+-  *DUAL GPT-NEO FUELD*
 
 # **What is C&A DL?**
 -Caine and Abel Deep Learning is an app for android robots that uses the Tensorboard visualzation libary from tensortorch
