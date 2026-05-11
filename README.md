@@ -5,7 +5,7 @@
 -Caine and Abel Deep Learning is an app for android robots that uses the Tensorboard visualzation libary from tensortorch
 to create soluctions for problems the robot wasent originally planned for, creating an adapting robot that can overcome problems
 
-**PROGRESS**
-Start of Project
-**SUPPORTED OS**
--Ubuntu
+- **PROGRESS**
+- Start of Project
+- **SUPPORTED OS**
+- Ubuntu
