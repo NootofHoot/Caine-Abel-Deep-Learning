@@ -1,27 +1,24 @@
-# Caine Visualizes information via pytorch and passes it to Abel for anaylize-peer to peer 
-
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
+import matplotlib.pyplot as plt
 from torch.utils.tensorboard import SummaryWriter
 
-pipeline = pipeline(task="text-generation", model="EleutherAI/gpt-neo-1.3B", dtype=torch.float16, device=0)
+class CaineVisualizer:
+    def __init__(self):
+        self.model = nn.Linear(1, 1)
+        self.x = torch.arange(-5, 5, 0.1).view(-1, 1)
+        self.y = -5 * self.x + 0.1 * torch.randn(self.x.size())
 
-x = torch.arange(-5, 5, 0.1).view(-1, 1)
-y = -5 * x + 0.1 * torch.randn(x.size())
+    def run_training(self, epochs):
+        optimizer = torch.optim.SGD(self.model.parameters(), lr=0.1)
+        criterion = nn.MSELoss()
+        for e in range(epochs):
+            y_pred = self.model(self.x)
+            loss = criterion(y_pred, self.y)
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+        return {"loss": loss.item(), "epochs": epochs, "trend": "stable"}
 
-model = torch.nn.Linear(1, 1)
-criterion = torch.nn.MSELoss()
-optimizer = torch.optim.SGD(model.parameters(), lr = 0.1)
-
-def train_model(iter):
-    for epoch in range(iter):
-        y1 = model(x)
-        loss = criterion(y1, y)
-        writer.add_scalar("Loss/train", loss, epoch)
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
-
-train_model(10)
-writer.flush()
+    def visualize(self):
+        plt.show()
